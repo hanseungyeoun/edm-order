@@ -4,7 +4,7 @@
 
 [3.MSA과 EDM](https://www.notion.so/3-MSA-EDM-a8eb91c9d6bf453d9a510e0bce75b107) 
 
-![Untitled](EDM%E1%84%8B%E1%85%B3%E1%84%85%E1%85%A9%20%E1%84%80%E1%85%AE%E1%84%92%E1%85%A7%E1%86%AB%E1%84%92%E1%85%A1%E1%84%82%E1%85%B3%E1%86%AB%20Order%20Api%20271d9c2f87f5405b9314e5aa69cb4a4c/Untitled.png)
+![Untitled](images/Untitled.png)
 
 1. 사용자가 Order Api을 이용하여 주문을 한다. 
 2. 주문 서비스가  ‘ORDER_CREATE’ 이벤트를 Invetory Topic 으로 발행을 한다. 
@@ -125,9 +125,33 @@ docker compose -f .docker-compose-edm.yml up
     }
     ```
     
-
 ## DB
 
-[Orders::주문](https://www.notion.so/51222db6f8174dbbb3920dd7cc7a3619)
+### orders
 
-[Inventory:주문](https://www.notion.so/bdb51b71c3fd4401850dfb3e4d2976b1)
+| id | 주문 id |
+| --- | --- |
+| addr | 주소 |
+| email | 이메일 |
+| name | 주문자명 |
+| status | 주문상태 |
+| tel | 전화번호 |
+| transaction_id | 주문 Transaction id |
+| updated | 수정 일시  |
+| user_id | 주문자 id |
+
+### Invetory
+
+| Id | 상품 Id |
+| --- | --- |
+| name | 상품명 |
+| price | 가격 |
+| quantity | 재고 |
+
+### Invetory_history
+
+| Id | Id(PK) |
+| --- | --- |
+| inventory_id | 상품 Id |
+| transaction_id | 주문 Transaction id |
+| quantity | 재고 변경량 |
