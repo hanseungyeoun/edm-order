@@ -1,0 +1,29 @@
+spring:
+  jpa:
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        default_batch_fetch_size: 100
+        use_sql_comments: true
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+  h2:
+    console:
+      enabled: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3308/order
+    username: root
+    password: orderpw
+
+  kafka:
+    bootstrapAddress: localhost:19092
+
+my:
+  bootstrap-servers: localhost:19092
+  order-topic-name: order
+  inventory-topic-name: inventory
+  payment-topic-name: payment

@@ -1,0 +1,12 @@
+spring.kafka.bootstrapAddress: localhost:19092
+
+my:
+  bootstrap-servers: localhost:19092
+  outbound-success-event-channel: order
+  outbound-failure-event-channel: inventory
+  is_pg_api_call_succeeded: true
+
+
+server:
+  port: 8082
+

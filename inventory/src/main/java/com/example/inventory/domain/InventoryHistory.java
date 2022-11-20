@@ -1,0 +1,41 @@
+package com.example.inventory.domain;
+
+import com.example.inventory.common.exception.InvalidParamException;
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import org.springframework.util.StringUtils;
+
+import javax.persistence.*;
+
+@Getter
+@Entity
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Table(name = "inventory_history")
+@EntityListeners(AuditingEntityListener.class)
+public class InventoryHistory {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "inventory_id")
+    private Inventory inventory;
+
+    private String transactionId;
+    private Integer quantity;
+
+    @Builder
+    public InventoryHistory(Inventory inventory, String transactionId, Integer quantity) {
+        if(inventory == null) throw new InvalidParamException("InventoryHistory.inventory");
+        if(!StringUtils.hasText(transactionId)) throw new InvalidParamException("InventoryHistory.transactionId");
+        if(quantity == null) throw new InvalidParamException("InventoryHistory.quantity");
+
+        this.inventory = inventory;
+        this.transactionId = transactionId;
+        this.quantity = quantity;
+    }
+}
