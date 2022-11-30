@@ -129,7 +129,7 @@ docker compose -f .docker-compose-edm.yml up
 
 ### orders
 
-| id | 주문 id |
+| 컬럼 | 설명 |
 | --- | --- |
 | addr | 주소 |
 | email | 이메일 |
@@ -142,7 +142,7 @@ docker compose -f .docker-compose-edm.yml up
 
 ### Invetory
 
-| Id | 상품 Id |
+| 컬럼 | 설명 |
 | --- | --- |
 | name | 상품명 |
 | price | 가격 |
@@ -150,7 +150,7 @@ docker compose -f .docker-compose-edm.yml up
 
 ### Invetory_history
 
-| Id | Id(PK) |
+| 컬럼 | 설명 |
 | --- | --- |
 | inventory_id | 상품 Id |
 | transaction_id | 주문 Transaction id |
